@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 11:32:54 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/21 13:29:20 by digoncal         ###   ########.fr       */
+/*   Created: 2022/11/22 16:49:43 by digoncal          #+#    #+#             */
+/*   Updated: 2022/11/22 17:17:25 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 char	*ft_read_file(int fd, char *stash)
 {
 	int		bytes;
-	char	buffer[BUFFER_SIZE];
+	char	*buffer;
 
-	//buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
-	//if (!buffer)
-	//	return (NULL);
+	buffer = (char *) malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buffer)
+		return (NULL);
 	bytes = 1;
 	while (!ft_strchr(stash, '\n') && bytes != 0)
 	{

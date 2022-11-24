@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: digoncal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 11:32:54 by digoncal          #+#    #+#             */
-/*   Updated: 2022/11/24 09:52:47 by digoncal         ###   ########.fr       */
+/*   Created: 2022/11/24 09:29:53 by digoncal          #+#    #+#             */
+/*   Updated: 2022/11/24 09:52:27 by digoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,17 @@ char	*ft_read_file(int fd, char *stash)
 char	*get_next_line(int fd)
 {
 	char			*line;
-	static char		*stash;
+	static char		*stash[4096];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	stash = ft_read_file(fd, stash);
-	if (!ft_strlen(stash))
+	stash[fd] = ft_read_file(fd, stash[fd]);
+	if (!stash[fd])
 	{
-		free(stash);
+		free(stash[fd]);
 		return (NULL);
 	}
-	line = ft_getline(stash);
-	stash = ft_reset_stash(stash);
+	line = ft_getline(stash[fd]);
+	stash[fd] = ft_reset_stash(stash[fd]);
 	return (line);
 }

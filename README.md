@@ -39,8 +39,12 @@ In summary, this project presents an opportunity to create a robust text-reading
 <br>
 
 ## HOW TO USE
-To use this function, you will need to compile it with your code or add it to your library.
-
+#### 1º - Clone the repository
+```bash
+$ git clone git@github.com:diocode/42-Get_next_line.git
+```
+#### 2º - Use the function
+To use the get_next_line() function, you will need to compile it with your code or add it to your library.
 <br>
 
 ## NORMINETTE
